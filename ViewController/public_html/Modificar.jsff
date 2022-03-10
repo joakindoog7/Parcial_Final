@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelFormLayout id="pfl1">
+    <af:inputText value="#{bindings.Id.inputValue}" label="#{bindings.Id.hints.label}"
+                  required="#{bindings.Id.hints.mandatory}" columns="#{bindings.Id.hints.displayWidth}"
+                  maximumLength="#{bindings.Id.hints.precision}" shortDesc="#{bindings.Id.hints.tooltip}" id="it1">
+      <f:validator binding="#{bindings.Id.validator}"/>
+      <af:convertNumber groupingUsed="false" pattern="#{bindings.Id.format}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.Nombre.inputValue}" label="#{bindings.Nombre.hints.label}"
+                  required="#{bindings.Nombre.hints.mandatory}" columns="#{bindings.Nombre.hints.displayWidth}"
+                  maximumLength="#{bindings.Nombre.hints.precision}" shortDesc="#{bindings.Nombre.hints.tooltip}"
+                  id="it2">
+      <f:validator binding="#{bindings.Nombre.validator}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.Duracion.inputValue}" label="#{bindings.Duracion.hints.label}"
+                  required="#{bindings.Duracion.hints.mandatory}" columns="#{bindings.Duracion.hints.displayWidth}"
+                  maximumLength="#{bindings.Duracion.hints.precision}" shortDesc="#{bindings.Duracion.hints.tooltip}"
+                  id="it3">
+      <f:validator binding="#{bindings.Duracion.validator}"/>
+      <af:convertNumber groupingUsed="false" pattern="#{bindings.Duracion.format}"/>
+    </af:inputText>
+    <f:facet name="footer">
+    
+      <af:button actionListener="#{bindings.Commit.execute}" text="Aceptar"
+                 id="b2" action="Volver"/>
+      <af:button actionListener="#{bindings.Rollback.execute}" text="Cancelar"
+                 immediate="true" id="b3" action="Volver">
+        <af:resetActionListener/>
+      </af:button>
+    </f:facet>
+  </af:panelFormLayout>
+ <af:popup childCreation="deferred" autoCancel="disabled" id="Aceptar">
+    <af:dialog id="d1" type="none" title="Desea Aceptar Los cambios?">
+      <f:facet name="buttonBar"/>
+      <af:button text="si" id="b8" actionListener="#{bindings.Commit.execute}" disabled="#{!bindings.Commit.enabled}"
+                 action="Volver"/>
+      <af:button text="no" id="b9" actionListener="#{bindings.Rollback.execute}"
+                 disabled="#{!bindings.Rollback.enabled}" immediate="true" action="Volver">
+        <af:resetActionListener/>
+      </af:button>
+    </af:dialog>
+  </af:popup>
+  <af:popup childCreation="deferred" autoCancel="disabled" id="Cancelar">
+    <af:dialog id="d2" type="none" title="Desea Cancelar Los cambios?">
+      <f:facet name="buttonBar"/>
+      <af:button text="si" id="b10" actionListener="#{bindings.Commit.execute}" disabled="#{!bindings.Commit.enabled}"
+                 action="Volver"/>
+      <af:button text="no" id="b11" actionListener="#{bindings.Rollback.execute}"
+                 disabled="#{!bindings.Rollback.enabled}" immediate="true" action="Volver">
+        <af:resetActionListener/>
+      </af:button>
+    </af:dialog>
+  </af:popup>
+</ui:composition>

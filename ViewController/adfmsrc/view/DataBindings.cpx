@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.11.57" id="DataBindings"
+             SeparateXMLFiles="false" Package="view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/MateriaPorCursos.jsf" usageId="view_MateriaPorCursosPageDef"/>
+    <page path="/MateriasPorCursos.jsf" usageId="view_MateriasPorCursosPageDef"/>
+    <page path="/Nuevo.jsff" usageId="view_NuevoPageDef"/>
+    <page path="/CursosPorMateria.jsff" usageId="view_CursosPorMateriaPageDef"/>
+    <page path="/Modificar.jsff" usageId="view_ModificarPageDef"/>
+    <page path="/NuevoCurso.jsf" usageId="view_NuevoCursoPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="view_MateriaPorCursosPageDef" path="view.pageDefs.MateriaPorCursosPageDef"/>
+    <page id="view_MateriasPorCursosPageDef" path="view.pageDefs.MateriasPorCursosPageDef"/>
+    <page id="view_NuevoPageDef" path="view.pageDefs.NuevoPageDef"/>
+    <page id="view_CursosPorMateriaPageDef" path="view.pageDefs.CursosPorMateriaPageDef"/>
+    <page id="view_ModificarPageDef" path="view.pageDefs.ModificarPageDef"/>
+    <page id="view_NuevoCursoPageDef" path="view.pageDefs.NuevoCursoPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppCURSODataControl" Package="model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppCURSOLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="AppCURSODataControl1" Package="model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppCURSOLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="CursosMateriasDataControl" Package="model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="CursosMateriasLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="MateriaPorCursosPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CursosView1" RangeSize="25" DataControl="CursosMateriasDataControl" id="CursosView1Iterator"/>
+    <iterator Binds="MateriasView1" RangeSize="25" DataControl="CursosMateriasDataControl" id="MateriasView1Iterator"/>
+    <searchRegion Binds="MateriasView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="MateriasView1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CursosView1Iterator" id="Id">
+      <AttrNames>
+        <Item Value="Id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CursosView1Iterator" id="Nombre">
+      <AttrNames>
+        <Item Value="Nombre"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CursosView1Iterator" id="Duracion">
+      <AttrNames>
+        <Item Value="Duracion"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="CursosView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="CursosView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="CursosView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="CursosView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="MateriasView1Iterator" id="MateriasView1">
+      <nodeDefinition DefName="model.View.MateriasView" Name="MateriasView10">
+        <AttrNames>
+          <Item Value="CursoId"/>
+          <Item Value="Nombre"/>
+          <Item Value="Duracion"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

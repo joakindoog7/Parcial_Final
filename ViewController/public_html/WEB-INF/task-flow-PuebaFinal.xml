@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="task-flow-PuebaFinal">
+    <default-activity>CursosPorMateria</default-activity>
+    <transaction>
+      <new-transaction/>
+    </transaction>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__8">
+      <managed-bean-name>Nuevo</managed-bean-name>
+      <managed-bean-class>view.Nuevo</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <view id="CursosPorMateria">
+      <page>/CursosPorMateria.jsff</page>
+    </view>
+    <view id="Modificar">
+      <page>/Modificar.jsff</page>
+    </view>
+    <view id="Nuevo">
+      <page>/Nuevo.jsff</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>CursosPorMateria</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>modificar</from-outcome>
+        <to-activity-id>Modificar</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>Nuevo</from-outcome>
+        <to-activity-id>Nuevo</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>Modificar</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>Volver</from-outcome>
+        <to-activity-id>CursosPorMateria</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>Nuevo</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>Volver</from-outcome>
+        <to-activity-id>CursosPorMateria</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>
